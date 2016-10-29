@@ -1,10 +1,13 @@
 package com.minhnpa.coderschool.coderschool_simpletwitterclient.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.minhnpa.coderschool.coderschool_simpletwitterclient.R;
@@ -28,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.rvTweet)
     RecyclerView rvTweet;
 
+    @BindView(R.id.fabCompose)
+    FloatingActionButton fabCompose;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
         populateTimeline();
         setUpViews();
+        fabCompose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ComposeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setUpViews() {
