@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:padding="6dp">
 
     <ImageView
         android:id="@+id/ivPhoto"
@@ -13,21 +13,51 @@
         android:layout_marginRight="6dp"
         tools:background="@android:color/black" />
 
-    <TextView
-        android:id="@+id/tvUsername"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rlInformation"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/ivPhoto"
-        android:layout_toRightOf="@+id/ivPhoto"
-        tools:text="aksdlmsakldmaskldm" />
+        android:layout_toRightOf="@+id/ivPhoto">
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            tools:text="1m" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            tools:text="Justin Bieber" />
+
+        <TextView
+            android:id="@+id/tvScreenName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:layout_toEndOf="@+id/tvName"
+            android:layout_toRightOf="@+id/tvName"
+            android:textSize="10sp"
+            tools:text="justinbieber" />
+    </RelativeLayout>
 
     <TextView
-        android:id="@+id/tvBody"
+        android:id="@+id/tvText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivPhoto"
-        android:layout_below="@+id/tvUsername"
+        android:layout_below="@+id/rlInformation"
         android:layout_toEndOf="@+id/ivPhoto"
         android:layout_toRightOf="@+id/ivPhoto"
+        android:textColor="@android:color/black"
         tools:text="aksdlmsakldmaskldm" />
 </RelativeLayout>
