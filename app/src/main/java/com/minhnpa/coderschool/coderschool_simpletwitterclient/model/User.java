@@ -18,21 +18,6 @@ public class User {
     @SerializedName("profile_image_url")
     private String profileImageUrl;
 
-//    public static User fromJSON(JSONObject jsonObject) {
-//        User user = new User();
-//
-//        try {
-//            user.id = jsonObject.getLong("id");
-//            user.name = jsonObject.getString("name");
-//            user.screenName = jsonObject.getString("screen_name");
-//            user.profileImageUrl = jsonObject.getString("profile_image_url");
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return user;
-//    }
-
     public long getId() {
         return id;
     }

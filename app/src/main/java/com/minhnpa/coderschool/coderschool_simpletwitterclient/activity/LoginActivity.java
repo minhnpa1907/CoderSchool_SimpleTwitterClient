@@ -28,12 +28,6 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
         setContentView(R.layout.activity_login);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.login, menu);
-//        return true;
-//    }
-
     @Override
     public void onLoginSuccess() {
         Intent intent = new Intent(this, MainActivity.class);

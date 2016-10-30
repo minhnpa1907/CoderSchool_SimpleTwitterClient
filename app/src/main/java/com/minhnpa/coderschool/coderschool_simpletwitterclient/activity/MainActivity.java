@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     public final int REQUEST_COMPOSE = 9001;
     TweetAdapter tweetAdapter;
     Gson mGson;
-    String strTweet;
     boolean networkConnected;
 
     @BindView(R.id.rvTweet)
@@ -173,6 +172,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
+                Log.d("error", errorResponse.toString());
             }
         });
     }
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_COMPOSE && resultCode == RESULT_OK) {
-            strTweet = data.getExtras().getString("tweet");
+            String strTweet = data.getExtras().getString("tweet");
             postTweet(strTweet);
         }
         load();

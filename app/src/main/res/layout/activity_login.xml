@@ -8,12 +8,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.LoginActivity.">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnLogin"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher" />
+
     <Button
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:layout_margin="20dp"
+        android:background="@drawable/btn_tweet_bg"
         android:onClick="loginToRest"
-        android:text="Login" />
+        android:text="@string/text_login"
+        android:textColor="@android:color/white" />
 
 </RelativeLayout>
