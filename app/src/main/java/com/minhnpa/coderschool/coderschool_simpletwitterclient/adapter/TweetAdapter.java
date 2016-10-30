@@ -26,6 +26,11 @@ import butterknife.ButterKnife;
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> {
     private List<Tweet> mTweets;
     private Context mContext;
+    private Listener mListener;
+
+    public interface Listener {
+        void onLoadMore();
+    }
 
     public TweetAdapter(Context context) {
         mTweets = new ArrayList<>();
@@ -59,6 +64,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                     .bitmapTransform(new RoundedCornersTransformation(getContext(), 4, 4))
                     .into(viewHolder.ivPhoto);
         }
+        if(position == mTweets.size() - 1 && mListener != null){
+            mListener.onLoadMore();
+        }
     }
 
     @Override
@@ -66,10 +74,20 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         return mTweets.size();
     }
 
+    public void setListener(Listener mListener) {
+        this.mListener = mListener;
+    }
+
     public void setTweets(List<Tweet> tweets) {
         mTweets.clear();
         mTweets.addAll(tweets);
         notifyDataSetChanged();
+    }
+
+    public void addTweets(List<Tweet> tweets){
+        int position = tweets.size();
+        mTweets.addAll(tweets);
+        notifyItemRangeInserted(position, tweets.size());
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
